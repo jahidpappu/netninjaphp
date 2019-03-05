@@ -1,10 +1,23 @@
 
 <?php 
 
-    if(isset($_GET['submit'])){
-        echo $_GET['email'];
-        echo $_GET['title'];
-        echo $_GET['Ingredients'];
+    // if(isset($_GET['submit'])){
+    //     echo $_GET['email'];
+    //     echo $_GET['title'];
+    //     echo $_GET['Ingredients'];
+    // }
+
+    if(isset($_POST['submit'])){
+       // echo htmlspecialchars($_POST['email']);
+       // echo htmlspecailchars($_POST['title']);
+       // echo htmlspecialchars($_POST['Ingredients']);
+
+       //check email
+       if(empty($_POST['email'])){
+            echo 'An email is required <br/>';
+       }else{
+          echo htmlspecialchars($_POST['email']);
+       }
     }
 
 ?>
@@ -17,7 +30,7 @@
 <section class="container grey-text">
 
     <h4 class="center">Add a Pizza</h4>
-    <form class="white" action="add.php" method="GET">
+    <form class="white" action="add.php" method="POST">
         <label>Your Email:</label>
         <input type="text" name="email">
         <label>Your Title:</label>
