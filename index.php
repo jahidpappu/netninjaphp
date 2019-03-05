@@ -8,6 +8,9 @@
 <html lang="en">
 
 <?php include('templates/header.php'); ?>
-    
-</body>
+
+<?php include('templates/footer.php'); ?>
+
+
+    <h1>hello</h1>
 </html>
