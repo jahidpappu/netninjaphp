@@ -1,5 +1,7 @@
 
 <?php 
+$errors = array('email'=>'', 'title'=>'','Ingredients'=>'');
+
 
     // if(isset($_GET['submit'])){
     //     echo $_GET['email'];
@@ -16,8 +18,33 @@
        if(empty($_POST['email'])){
             echo 'An email is required <br/>';
        }else{
-          echo htmlspecialchars($_POST['email']);
+           $email = $_POST['email'];
+          if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            echo 'email must be a valid email address';
+          }
        }
+
+        //check title
+        if(empty($_POST['title'])){
+            echo 'An title is required <br/>';
+       }else{
+           $title = $_POST['title'];
+           if(!preg_match('/^[a-zA-Z\s]+$/', $title)){
+            echo 'Title must be letters and spaces only';
+          }
+       }
+
+    
+        //check Ingredients
+        if(empty($_POST['Ingredients'])){
+            echo 'An Ingredients is required <br/>';
+       }else{
+           $Ingredients = $_POST['Ingredients'];
+           if(!preg_match('/^([a-zA-Z\s]+)(,\s*[a-zA-Z\s]*)*$/', $Ingredients)){
+            echo 'Ingredients must be letters and spaces only';
+          }
+       }
+       
     }
 
 ?>
