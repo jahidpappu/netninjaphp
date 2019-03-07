@@ -42,8 +42,16 @@ $errors = array('email'=>'', 'title'=>'','ingredients'=>'');
                 $errors['ingredients'] = 'ingredients must be comma';
             }
         }
+
+        if(array_filter($errors)){
+           // echo 'errors in the form';
+        }else{
+            //echo 'submited';
+
+            header('Location: index.php');
+        }
       
-    }
+    }//end of post check
 
 ?>
 
